@@ -89,13 +89,13 @@ function operate()
             ans = power(nums);
     }
     
-    if (isNaN(Number(ans)))
+    if (isNaN(ans))
     {
         screen.textContent = '0';
     }
     else
     {
-        screen.textContent = ans;
+        screen.textContent = fixDecimal(ans);
     }
 }
 
@@ -135,4 +135,19 @@ function percent(nums)
 function power(nums)
 {
     return Math.pow(nums[0], nums[1]);
+}
+
+function fixDecimal(num)
+{
+    let fixedNum = num;
+    let str = '';
+    str += num;
+
+    const arr = str.split('.');
+    const decimals = arr[1].split('');
+    if (decimals.length > 8)
+    {
+        fixedNum = fixedNum.toFixed(8);
+    }
+    return fixedNum;
 }
