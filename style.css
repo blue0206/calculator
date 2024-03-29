@@ -50,6 +50,7 @@ main
     justify-content: flex-start;
     align-items: flex-end;
     overflow: auto;
+    font-size: 48px;
 }
 
 .buttons
@@ -72,6 +73,7 @@ main
     height: 100%;
     width: 25%;
     margin: 4px;
+    font-size: 22px;
 }
 
 footer
