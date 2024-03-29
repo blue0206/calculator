@@ -10,11 +10,11 @@ btnList.forEach((btn) => {
         switch (e.target.getAttribute("class")) 
         {
             case "btn operator":
-                screen.textContent += e.target.getAttribute("value");
                 operatorCount++;
                 if (operatorCount == 2) {
                     operate();
                 }
+                screen.textContent += e.target.getAttribute("value");
                 break;
             case "btn calculate":
                 operate();
@@ -29,6 +29,7 @@ btnList.forEach((btn) => {
             case "btn ac":
                 screen.textContent = '';
                 dotUsed = false;
+                operatorCount = 0;
                 break;
             case "btn backspace":
                 const arr = screen.textContent.split('');
@@ -36,6 +37,11 @@ btnList.forEach((btn) => {
                 if (removed == '.')
                 {
                     dotUsed = false;
+                }
+                const operators = ['+', '-', '/', 'x', '%', '^'];
+                if (operators.some((op) => removed.includes(op)))
+                {
+                    operatorCount--;
                 }
                 screen.textContent = arr.join('');
                 break;
@@ -47,8 +53,7 @@ btnList.forEach((btn) => {
 
 function operate()
 {
-    operatorCount = 0;
-    alert('calculating');
+    operatorCount = 1;
 }
 
 function add(num1, num2)
