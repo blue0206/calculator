@@ -144,6 +144,11 @@ function fixDecimal(num)
     str += num;
 
     const arr = str.split('.');
+    if (arr.length == 1)
+    {
+        return fixedNum;
+    }
+    
     const decimals = arr[1].split('');
     if (decimals.length > 8)
     {
