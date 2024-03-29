@@ -89,7 +89,14 @@ function operate()
             ans = power(nums);
     }
     
-    screen.textContent = ans;
+    if (isNaN(Number(ans)))
+    {
+        screen.textContent = '0';
+    }
+    else
+    {
+        screen.textContent = ans;
+    }
 }
 
 function add(nums)
@@ -106,22 +113,26 @@ function subtract(nums)
     }, parseFloat(nums[0])*2));
 }
 
-function multiply(num1, num2)
+function multiply(nums)
 {
-    return (num1 * num2);
+    return (nums.reduce((product, num) => {
+        return (product * parseFloat(num));
+    }, 1));
 }
 
-function divide(num1, num2)
+function divide(nums)
 {
-    return (num1 / num2);
+    return (nums.reduce((numerator, denominator) => {
+        return (numerator / parseFloat(denominator));
+    }, parseFloat(nums[0])*parseFloat(nums[0])));
 }
 
 function percent(nums)
 {
-
+    return ((parseFloat(nums[0])/100.0) * parseFloat(nums[1]));
 }
 
 function power(nums)
 {
-
+    return Math.pow(nums[0], nums[1]);
 }
