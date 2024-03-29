@@ -3,6 +3,7 @@ screen.textContent = '';
 
 let operatorCount = 0;
 let dotUsed = false;
+const operators = ["+", "-", "/", "x", "%", "^"];
 
 const btnList = Array.from(document.querySelectorAll('.btn'));
 btnList.forEach((btn) => {
@@ -38,7 +39,6 @@ btnList.forEach((btn) => {
                 {
                     dotUsed = false;
                 }
-                const operators = ['+', '-', '/', 'x', '%', '^'];
                 if (operators.some((op) => removed.includes(op)))
                 {
                     operatorCount--;
@@ -54,6 +54,36 @@ btnList.forEach((btn) => {
 function operate()
 {
     operatorCount = 1;
+
+    let operator = '';
+    operators.some((op) => {
+        if (screen.textContent.includes(op))
+        {
+            operator = op;
+        }
+    });
+    const nums = screen.textContent.split(operator);
+
+    switch (operator)
+    {
+        case '+':
+            screen.textContent = add(nums);
+            break;
+        case '-':
+            screen.textContent = subtract(nums);
+            break;
+        case 'x':
+            screen.textContent = multiply(nums);
+            break;
+        case '/':
+            screen.textContent = divide(nums);
+            break;
+        case '%':
+            screen.textContent;
+            break;
+        case '^':
+            screen.textContent;
+    }    
 }
 
 function add(num1, num2)
