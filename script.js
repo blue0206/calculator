@@ -11,6 +11,7 @@ btnList.forEach((btn) => {
         switch (e.target.getAttribute("class")) 
         {
             case "btn operator":
+                dotUsed = false;
                 operatorCount++;
                 if (operatorCount == 2) {
                     operate();
@@ -18,6 +19,7 @@ btnList.forEach((btn) => {
                 screen.textContent += e.target.getAttribute("value");
                 break;
             case "btn calculate":
+                dotUsed = false;
                 operate();
                 break;
             case "btn decimal":
@@ -64,36 +66,44 @@ function operate()
     });
     const nums = screen.textContent.split(operator);
 
+    let ans = '';
+
     switch (operator)
     {
         case '+':
-            screen.textContent = add(nums);
+            ans = add(nums);
             break;
         case '-':
-            screen.textContent = subtract(nums);
+            ans = subtract(nums);
             break;
         case 'x':
-            screen.textContent = multiply(nums);
+            ans = multiply(nums);
             break;
         case '/':
-            screen.textContent = divide(nums);
+            ans = divide(nums);
             break;
         case '%':
-            screen.textContent;
+            ans = percent(nums);
             break;
         case '^':
-            screen.textContent;
-    }    
+            ans = power(nums);
+    }
+    
+    screen.textContent = ans;
 }
 
-function add(num1, num2)
+function add(nums)
 {
-    return (num1 + num2);
+    return (nums.reduce((sum, num) => {
+        return (sum + parseFloat(num));
+    }, 0));
 }
 
-function subtract(num1, num2)
+function subtract(nums)
 {
-    return (num1 - num2);
+    return (nums.reduce((accumulator, num) => {
+        return (accumulator - parseFloat(num));
+    }, parseFloat(nums[0])*2));
 }
 
 function multiply(num1, num2)
@@ -104,4 +114,14 @@ function multiply(num1, num2)
 function divide(num1, num2)
 {
     return (num1 / num2);
+}
+
+function percent(nums)
+{
+
+}
+
+function power(nums)
+{
+
 }
