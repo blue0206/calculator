@@ -51,6 +51,26 @@ btnList.forEach((btn) => {
                 screen.textContent += e.target.getAttribute("value");
         }
     });
+    switch(btn.getAttribute('class'))
+    {
+        case "btn ac":
+            btn.style.backgroundColor = 'black';
+            btn.style.color = 'aliceblue';
+            break;
+        case "btn backspace":
+            btn.style.backgroundColor = 'grey';
+            btn.style.color = 'aliceblue';
+            break;
+        case "btn operator":
+            btn.style.backgroundColor = 'rgb(187, 123, 81)';
+            break;
+        case "btn decimal":
+            btn.style.backgroundColor = 'aqua';
+            break;
+        case "btn calculate":
+            btn.style.backgroundColor = 'blue';
+            btn.style.color = 'aliceblue';
+    }
 });
 
 function operate()
@@ -148,7 +168,7 @@ function fixDecimal(num)
     {
         return fixedNum;
     }
-    
+
     const decimals = arr[1].split('');
     if (decimals.length > 8)
     {

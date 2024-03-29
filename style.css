@@ -8,6 +8,21 @@ body
     min-height: 85vh;
     height: 950px;
     min-width: 85vw;
+    gap: 16px;
+    background-image: linear-gradient(50deg,
+                hsl(240deg 37% 32%) 0%,
+                hsl(219deg 42% 43%) 13%,
+                hsl(209deg 48% 55%) 25%,
+                hsl(202deg 72% 69%) 35%,
+                hsl(194deg 65% 76%) 43%,
+                hsl(183deg 54% 84%) 48%,
+                hsl(166deg 81% 96%) 50%,
+                hsl(180deg 64% 93%) 50%,
+                hsl(191deg 76% 91%) 50%,
+                hsl(200deg 84% 90%) 54%,
+                hsl(214deg 81% 90%) 64%,
+                hsl(242deg 56% 91%) 80%,
+                hsl(290deg 35% 86%) 100%);
 }
 
 header
@@ -17,6 +32,19 @@ header
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+h1
+{
+    flex-basis: 20%;
+    font-size: 38px;
+    color: rgb(180, 155, 197);
+    border-width: 5px;
+    border-style: ridge;
+    border-color: aliceblue rgb(230, 208, 134);
+    padding: 22px;
+    background-color: rgb(22, 95, 129);
+    text-align: center;
 }
 
 main
@@ -31,16 +59,17 @@ main
 {
     display: flex;
     flex-direction: column;
-    height: 95%;
-    width: 32%;
+    flex-basis: 32%;
     border: 4px solid black;
     border-radius: 16px;
-    padding: 11px;
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
 }
 
 .screen
 {
-    flex-grow: 4;
+    flex-grow: 1;
+    flex-basis: 20%;
     border: 1px solid black;
     margin: 2px;
     border-radius: 8px;
@@ -51,18 +80,21 @@ main
     align-items: flex-end;
     overflow: auto;
     font-size: 48px;
+    background-color: #E5E7EB;
 }
 
 .buttons
 {
-    flex-grow: 5;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-basis: 80%;
 }
 
 .btn-row
 {
     display: flex;
+    flex-basis: 100%;
     flex-grow: 1;
     margin: 4px 0px 4px 0px;
 }
@@ -70,10 +102,11 @@ main
 .btn
 {
     flex-grow: 1;
-    height: 100%;
-    width: 25%;
+    flex-basis: 100%;
     margin: 4px;
-    font-size: 22px;
+    font-size: 25px;
+    background-color: rgb(194, 185, 185);
+    border-radius: 16px;
 }
 
 footer
@@ -84,4 +117,11 @@ footer
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(18, 42, 94);
+    color: aliceblue;
+}
+
+a
+{
+    color: rgb(255, 191, 191);
 }
