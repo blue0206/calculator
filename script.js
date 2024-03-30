@@ -14,12 +14,14 @@ btnList.forEach((btn) => {
                 dotUsed = false;
                 operatorCount++;
                 if (operatorCount == 2) {
+                    operatorCount--;
                     operate();
                 }
                 screen.textContent += e.target.getAttribute("value");
                 break;
             case "btn calculate":
                 dotUsed = false;
+                operatorCount--;
                 operate();
                 break;
             case "btn decimal":
@@ -75,8 +77,6 @@ btnList.forEach((btn) => {
 
 function operate()
 {
-    operatorCount = 1;
-
     let operator = '';
     operators.some((op) => {
         if (screen.textContent.includes(op))
