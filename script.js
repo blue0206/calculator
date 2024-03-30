@@ -13,7 +13,8 @@ btnList.forEach((btn) => {
             case "btn operator":
                 dotUsed = false;
                 operatorCount++;
-                if (operatorCount == 2) {
+                if (operatorCount == 2) 
+                {
                     operatorCount--;
                     operate();
                 }
@@ -72,6 +73,32 @@ btnList.forEach((btn) => {
         case "btn calculate":
             btn.style.backgroundColor = 'blue';
             btn.style.color = 'aliceblue';
+    }
+});
+
+document.addEventListener("keyup", (press) => {
+    let clickEvent = new MouseEvent('click');
+
+    btnList.forEach((btn) => {
+        if (btn.getAttribute('value') == press.key)
+        {
+            btn.dispatchEvent(clickEvent);
+        }
+    });
+    switch (press.key)
+    {
+        case '*':
+            document.querySelector('[value=x]').dispatchEvent(clickEvent);
+            break;
+        case 'Backspace':
+            document.querySelector('.backspace').dispatchEvent(clickEvent);
+            break;
+        case 'Delete':
+            document.querySelector(".ac").dispatchEvent(clickEvent);
+            break;
+        case 'Enter':
+        case '=':
+            document.querySelector(".calculate").dispatchEvent(clickEvent);
     }
 });
 
